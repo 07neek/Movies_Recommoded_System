@@ -81,17 +81,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 
-
-                    #New Concept
 class MovieRecommonded:
     def __init__(self):
         self.df = pd.read_csv("C:\\Users\\Neek\\Downloads\\imdb_top_1000.csv", usecols=["Series_Title", "Released_Year", "Genre", "Overview", "Star1", "Star2", "Star3"])
 
     def show_data(self):
-        # self.df['Star1']=self.df['Star1'].str.replace(" ", "")
-        # self.df['Star2']=self.df['Star2'].str.replace(" ", "")
-        # self.df['Star3']=self.df['Star3'].str.replace(" ", "")
-
         self.df['Star'] = self.df['Star1'] + ',' + self.df['Star2'] + ',' + self.df['Star3']
         self.df['Star'] = self.df['Star'].str.lower()
         self.new_df = self.df[["Series_Title", "Released_Year", "Genre", "Overview", "Star"]].copy()
@@ -155,5 +149,6 @@ if __name__ == '__main__':
     print(recommender.recommended("Interstellar"))
 
     # This will print the first 5 rows
+
 
 
